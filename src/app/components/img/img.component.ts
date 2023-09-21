@@ -6,8 +6,9 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./img.component.scss'],
 })
 export class ImgComponent {
-  @Input()
-  set img(newImg: string) {
+  img: string = '';
+  @Input('img')
+  set changeImg(newImg: string) {
     this.img = newImg;
     console.log('change imag');
   }

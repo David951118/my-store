@@ -23,7 +23,7 @@ export class ProductsComponent {
     this.myShopingCart = this.storeService.getShopingCart();
   }
 
-  OnInit(): void {
+  ngOnInit(): void {
     this.productService.getAllProducts()
     .subscribe(data =>{
       console.log(data)
