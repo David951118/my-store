@@ -32,7 +32,10 @@
       </ul>
     </nav>
     <div class="info">
-      <div class="account">david@gmail.com</div>
+      <div class="account">
+        <button *ngIf="!token; else elseblock" (click)="login()">login</button>
+        <ng-template #elseblock>{{ profile?.email }}</ng-template>
+      </div>
       <div class="cart">
         <a href="">
           <img src="../../../assets/icon_shopping_cart.svg" alt="logo">

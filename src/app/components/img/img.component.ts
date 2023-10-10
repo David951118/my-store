@@ -10,7 +10,6 @@ export class ImgComponent {
   @Input('img')
   set changeImg(newImg: string) {
     this.img = newImg;
-    console.log('change imag');
   }
   @Input() alt = '';
   @Output() loaded = new EventEmitter<string>();
@@ -21,7 +20,6 @@ export class ImgComponent {
   }
 
   imgLoaded() {
-    console.log('Imagen cargada hijo');
     this.loaded.emit(this.img);
   }
 }

@@ -1,22 +1,24 @@
-<p>
-  La cantidad {{myShopingCart.length}}
-</p>
-<p>
-  El total:$ {{ total }}
-</p>
-<p>
-  Today {{ today | date: 'short' }}
-</p>
-<p>
-  Today {{ today | timeAgo }}
-</p>
-<p>
-  Today {{ date | date: 'yy.dd.mm' }}
-</p>
+<button (click)="createNewProduct()">Create</button>
+<button (click)="onShowDetail('ddss')">Detail not found</button>
 <div class="products--grid">
   <app-product
     [product]="product"
     *ngFor="let product of products"
     (addedProduct)="onAddToShopingCart($event)"
+    (showDetail)="onShowDetail($event)"
   ></app-product>
+  <button (click)="loadMore()">Load more</button>
+</div>
+<div class="product-detail" [class.active]="showProductDetail">
+  {{ statusDetail }}
+  <div *ngIf="productChoosen">
+    <button (click)="toggleproductDetail()">Close</button>
+    <h2>{{ productChoosen.title }}</h2>
+    <div class="carousel-item">
+      <img [src]="productChoosen.image" alt="name" width="100"/>
+    </div>
+    <p>{{ productChoosen.description }}</p>
+    <button (click)="updateProduct()">Editar</button>
+    <button (click)="deleteProduct()">Delte</button>
+  </div>
 </div>
