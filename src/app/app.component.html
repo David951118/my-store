@@ -4,6 +4,10 @@
 <p>
   <button (click)="dowloadPdf()">Descagar pdf</button>
 </p>
+<p>
+  <input type="file" (change)="onUpload($event)">
+  <img *ngIf="imgrta" [src]="imgrta" alt="">
+</p>
 <app-products></app-products>
 
 <!-- <input type="text" [(ngModel)]="imageParent" />

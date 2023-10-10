@@ -13,6 +13,7 @@ export class AppComponent {
   imageParent = '';
   showImage = false; // Initialize with a boolean value
   token = '';
+  imgrta= '';
 
   constructor(
     private AuthService: AuthService,
@@ -41,6 +42,17 @@ export class AppComponent {
   dowloadPdf(){
     this.FilesService.getFile('newFile', 'https://mozilla.github.io/pdf.js/web/compressed.tracemonkey-pldi-09.pdf', 'application/pdf')
     .subscribe()
+  }
+
+  onUpload(event: Event){
+    const element = event.target as HTMLInputElement;
+    const file = element.files?.item(0);
+    if (file){
+      this.FilesService.uploadFile(file)
+    .subscribe( rta => {
+      this.imgrta = rta.location;
+    })
+    }
   }
 
 }
